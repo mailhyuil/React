@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import FoodList from "./FoodList"
 import moment from "moment";
 
@@ -16,7 +16,6 @@ const FoodInput = () => {
         setFoodList(jsonFood);
     }
 
-
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -27,7 +26,7 @@ const FoodInput = () => {
             f_name: e.target[0].value,
             f_intake: e.target[1].value,
             f_calorie: e.target[2].value + " K",
-            f_total: Number.parseInt(e.target[2].value) + total + " K",
+            f_total: (Number.parseInt(e.target[2].value) * Number.parseInt(e.target[1].value)) + " K",
         }
 
         e.target[0].value = "";
