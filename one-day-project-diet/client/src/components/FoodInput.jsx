@@ -30,6 +30,10 @@ const FoodInput = () => {
             f_total: Number.parseInt(e.target[2].value) + total + " K",
         }
 
+        e.target[0].value = "";
+        e.target[1].value = "";
+        e.target[2].value = "";
+
         const postData = {
             method: 'POST',
             headers: {
