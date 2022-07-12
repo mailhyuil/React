@@ -10,7 +10,6 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import mongoose from "mongoose";
-import { mongoURL } from "./config/mongoConfig.js";
 
 const dbConn = mongoose.connection;
 dbConn.on("connecting", () => {
@@ -26,13 +25,10 @@ dbConn.on("error", (err) => {
   console.log(err)
 })
 mongoose.connect(mongoURL);
-
-
-
 //! import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
-import bucketAPI from "./routes/bucketAPI.js"
-
+import foodAPI from "./routes/foodAPI.js"
+import test from "./routes/test.js"
 const app = express();
 
 // Disable the fingerprinting of this web technology. 경고
@@ -52,7 +48,8 @@ app.use(express.static(path.join('./client/build')));
 
 //! app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/bucket', bucketAPI)
+app.use('/food', foodAPI);
+app.use('/test', test);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

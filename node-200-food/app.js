@@ -10,7 +10,6 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import mongoose from "mongoose";
-import { mongoURL } from "./config/mongoConfig.js";
 
 const dbConn = mongoose.connection;
 dbConn.on("connecting", () => {
@@ -25,14 +24,12 @@ dbConn.on("open", () => {
 dbConn.on("error", (err) => {
   console.log(err)
 })
-mongoose.connect(mongoURL);
+mongoose.connect(`mongodb+srv://hyuil:12341234@cluster0.n6lttyl.mongodb.net/?retryWrites=true&w=majority`);
 
 
-
-//! import indexRouter from './routes/index.js';
+//import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
-import bucketAPI from "./routes/bucketAPI.js"
-
+import foodRouter from "./routes/foodAPI.js";
 const app = express();
 
 // Disable the fingerprinting of this web technology. 경고
@@ -46,14 +43,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-// ./client/build 디렉토리 안의 index.html을 열어라
 app.use(express.static(path.join('./client/build')));
 
-//! app.use('/', indexRouter);
+//!app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/bucket', bucketAPI)
-
+app.use('/food', foodRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
