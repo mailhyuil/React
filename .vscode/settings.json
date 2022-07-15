@@ -26,13 +26,20 @@
         "react-100-buckit V2": true,
         "**/react-200-hello": true,
         "react-200-hello": true,
-        "**/react-300-todolist": false,
+        "**/react-300-todolist": true,
         "react-300-todolist": true,
         "**/.vscode": true,
         ".vscode": true,
         "**/.gitignore": true,
         ".gitignore": true,
-        "express-type": true
+        "express-type": true,
+        "node-300-Food": true,
+        "**/node-300-Food": true,
+        "node-310-Food": true,
+        "react-600-context": true,
+        "react-600-context-v2": true,
+        "**/react-600-context-v2": true,
+        "react-600-context-v3": true
     },
     "explorerExclude.backup": null
 }

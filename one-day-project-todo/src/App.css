@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+td {
+  cursor: pointer;
+}
+
+tr.cancel {
+  text-decoration: line-through;
+  color: rgb(197, 197, 197);
+}
+
+td.todo {
+  font-size: 2rem;
+}
+
+tr.xmark i.fa-xmark {
+  opacity: 0;
+  color: red;
+  transition: .3s ease-in-out;
+  font-size: 2rem;
+}
+
+tr.xmark:hover i.fa-xmark {
+  opacity: 1;
+}
+
+td.check i.fa-check {
+  color: blue;
+  font-size: 2rem;
+  transition: .3s ease-in-out;
+
+}
+
+td.check:hover i.fa-check {
+  color: rgb(4, 207, 48);
+}

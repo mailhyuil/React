@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import moment from "moment";
-import uuid from "react-uuid";
+import DietContext from '../context/DietContext';
 
-const DietInput = ({ params }) => {
-    const { fetchFood, setFoods } = params
+const DietInput = () => {
+    const { fetchFood, setFoods } = useContext(DietContext);
 
     const [food, setFood] = useState({
-        d_id: uuid(),
         d_date: moment().format("YYYY[-]MM[-]DD"),
         d_food: "",
         d_qty: "",
