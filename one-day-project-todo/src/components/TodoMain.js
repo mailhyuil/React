@@ -9,11 +9,10 @@ const TodoMain = () => {
     localStorage.setItem("TODOLIST", JSON.stringify(todoList));
   }, [todoList]);
 
-  // 버킷을 입력한 후 버킷을 추가할 때
   const onKeyDown = (e) => {
     if (e.keyCode === 13) {
       const todo = {
-        id: uuid(), // PK 생성
+        id: uuid(),
         todo: e.target.value,
         isDone: false,
       };
